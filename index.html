@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Calculator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f2f2f2;
+    }
+    .calculator {
+        width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .result {
+        margin-bottom: 10px;
+        padding: 10px;
+        font-size: 24px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+    .buttons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 5px;
+    }
+    .button {
+        padding: 10px;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .number-button {
+        background-color: #3498db;
+        color: #fff;
+    }
+    .operator-button {
+        background-color: #e74c3c;
+        color: #fff;
+    }
+    .clear-button {
+        background-color: #2ecc71;
+        color: #fff;
+    }
+    .equals-button {
+        background-color: #9b59b6;
+        color: #fff;
+    }
+    .button:hover {
+        filter: brightness(0.9);
+    }
+</style>
+</head>
+<body>
+<div class="calculator">
+    <div class="result" id="result">0</div>
+    <div class="buttons">
+        <div class="button clear-button" onclick="clearResult()">C</div>
+        <div class="button number-button" onclick="appendToResult('7')">7</div>
+        <div class="button number-button" onclick="appendToResult('8')">8</div>
+        <div class="button number-button" onclick="appendToResult('9')">9</div>
+        <div class="button number-button" onclick="appendToResult('4')">4</div>
+        <div class="button number-button" onclick="appendToResult('5')">5</div>
+        <div class="button number-button" onclick="appendToResult('6')">6</div>
+        <div class="button number-button" onclick="appendToResult('1')">1</div>
+        <div class="button number-button" onclick="appendToResult('2')">2</div>
+        <div class="button number-button" onclick="appendToResult('3')">3</div>
+        <div class="button number-button" onclick="appendToResult('0')">0</div>
+        <div class="button number-button" onclick="appendToResult('.')">.</div>
+        <div class="button operator-button" onclick="calculate()">=</div>
+        <div class="button operator-button" onclick="appendToResult('+')">+</div>
+        <div class="button operator-button" onclick="appendToResult('-')">-</div>
+        <div class="button operator-button" onclick="appendToResult('*')">*</div>
+        <div class="button operator-button" onclick="appendToResult('/')">/</div>
+    </div>
+</div>
+
+<script>
+    function appendToResult(value) {
+        var result = document.getElementById('result');
+        if (result.innerText === '0' && value !== '.') {
+            result.innerText = '';
+        }
+        result.innerText += value;
+    }
+
+    function clearResult() {
+        document.getElementById('result').innerText = '0';
+    }
+
+    function calculate() {
+        var result = document.getElementById('result');
+        try {
+            result.innerText = eval(result.innerText);
+        } catch (error) {
+            result.innerText = 'Error';
+        }
+    }
+</script>
+</body>
+</html>
