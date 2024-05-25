@@ -1,2 +1,1 @@
-# Web-Page
-Frontend magician here! Designed and coded a stunning company webpage using HTML, CSS, and Bootstrap. Check out my frontend skills in action!
+I created a responsive calculator using HTML, CSS, and JavaScript. Demonstrates my frontend development skills in building interactive web applications.
